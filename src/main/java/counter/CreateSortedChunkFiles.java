@@ -23,15 +23,12 @@ public class CreateSortedChunkFiles {
     }
 
     private static void writeSortedFile(Integer key, List<String> value, String path) {
-        BufferedWriter writer = null;
         String fileName = path + "/tmp/tmpFile" + key + ".txt";
-        try {
-            writer = new BufferedWriter(new FileWriter(fileName));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (String line : value) {
                 writer.write(line);
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
