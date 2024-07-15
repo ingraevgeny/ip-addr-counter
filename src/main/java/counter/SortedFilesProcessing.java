@@ -13,10 +13,10 @@ public class SortedFilesProcessing {
         PriorityQueue<Map.Entry<BufferedReader, String>> queue
                 = new PriorityQueue<>((a, b) -> CreateSortedChunkFiles.compareIpAddrStrings(a.getValue(), b.getValue()));
         Stream.of(Objects.requireNonNull(new File(path + "/tmp").listFiles()))
-                .map(File::getName)
+                .map(File::getAbsoluteFile)
                 .collect(Collectors.toMap(fn -> {
                     try {
-                        return new BufferedReader(new FileReader(path + "/tmp/" + fn));
+                        return new BufferedReader(new FileReader(fn));
                     } catch (FileNotFoundException e) {
                         throw new RuntimeException(e);
                     }
