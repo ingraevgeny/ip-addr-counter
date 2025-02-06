@@ -19,6 +19,6 @@ public class Counter {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.printf("in file %s amount of unrepeatable lines: %s%n", path, amount);
+        System.out.printf("in file %s amount of unique lines: %s%n", path, amount);
     }
 }
