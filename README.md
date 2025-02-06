@@ -1,4 +1,4 @@
-This is a software to count none-repeating ip addresses lines in 1Gb+ files.  
+This is a software for counting unique IP addresses lines in 1Gb+ files.  
 
 To work with the application you have to create 2 environment variables:
 1. PATH_TO_HUGE_FILE
